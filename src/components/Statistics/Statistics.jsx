@@ -2,6 +2,7 @@ import { Component } from 'react'
 
 
 class Statistics extends Component {
+  
   state = {
     good: 0,
     neutral: 0,
@@ -17,7 +18,7 @@ class Statistics extends Component {
     return (good+neutral+bad)
   };
   countPositiveFeedbackPercentage = () => {
-    return Math.round((100 / Number(this.countTotalFeedback())*this.state.good));
+    return Math.round((100 / Number(this.countTotalFeedback()) * this.state.good)) ? Math.round((100 / Number(this.countTotalFeedback()) * this.state.good)) : '0';
   };
   render() {
     return (
@@ -38,7 +39,10 @@ class Statistics extends Component {
           <li>Neutral: {this.state.neutral}</li>
           <li>Bad: {this.state.bad}</li>
           <li>Total: {this.countTotalFeedback()}</li>
-          <li>Positive feedback: {this.countPositiveFeedbackPercentage()} %</li>
+          <li>
+            Positive feedback: {this.countPositiveFeedbackPercentage()} %
+          </li>
+         
         </ul>
       </div>
     );

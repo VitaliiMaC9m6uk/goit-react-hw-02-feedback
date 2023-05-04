@@ -18,8 +18,9 @@ class Statistics extends Component {
     return (good+neutral+bad)
   };
   countPositiveFeedbackPercentage = () => {
-    return(Math.round((100 / this.countTotalFeedback()) * this.state.good) ?
-      Math.round((100 / this.countTotalFeedback()) * this.state.good) : 0) 
+    const { good, neutral, bad } = this.state;
+    return (good+neutral+bad)!==0 ?
+      Math.round((100 / this.countTotalFeedback()) * this.state.good) : 0 
   };
   render() {
     return (
